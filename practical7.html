@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CM25060, Tejal Hedau</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+
+  <div class="max-w-3xl mx-auto">
+    <!-- Header Section -->
+    <div class="text-center mb-10">
+      <span class="text-indigo-600 font-semibold tracking-wide uppercase text-sm">Help & Support</span>
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mt-1">Frequently Asked Questions</h1>
+      <p class="mt-3 text-slate-600">Find quick answers to common questions about courses, admissions, and departmental policies.</p>
+    </div>
+
+    <!-- Accordion / FAQ Container -->
+    <div id="faq-container" class="space-y-4">
+
+      <!-- FAQ Item 1 -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:border-indigo-200">
+        <button class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <span>How do I register for elective courses this semester?</span>
+          <!-- Chevron Arrow Icon -->
+          <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+          You can register for elective courses via the Student Portal during the official registration window. Log in, go to the <strong>Course Registration</strong> tab, select your preferred electives, and submit for advisor approval.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:border-indigo-200">
+        <button class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <span>What is the deadline for submitting final year project proposals?</span>
+          <!-- Chevron Arrow Icon -->
+          <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+          Project proposals must be submitted to your assigned faculty advisor by the 4th Friday of the semester. Late submissions require written approval from the Head of Department.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:border-indigo-200">
+        <button class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <span>How can I apply for an academic transcript or recommendation letter?</span>
+          <!-- Chevron Arrow Icon -->
+          <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+          To request transcripts or letters of recommendation, visit the Department Administrative Office (Room 302) or submit an online request through the <strong>Student Services Hub</strong> on the college website. Processing typically takes 3–5 business days.
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:border-indigo-200">
+        <button class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <span>Who should I contact if I am facing attendance issues due to medical reasons?</span>
+          <!-- Chevron Arrow Icon -->
+          <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+          Submit your official medical certificate and leave application to the Department Office within 7 days of returning to campus. Ensure you also inform your class coordinator via email.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript DOM Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Select all FAQ toggle buttons
+      const toggleButtons = document.querySelectorAll('.faq-toggle');
+
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const faqItem = button.closest('.faq-item');
+          const answer = faqItem.querySelector('.faq-answer');
+          const icon = button.querySelector('.faq-icon');
+
+          // Check if current item is currently expanded
+          const isExpanded = !answer.classList.contains('hidden');
+
+          // (Optional) Close all other open items for an accordion effect
+          document.querySelectorAll('.faq-item').forEach(item => {
+            const itemAnswer = item.querySelector('.faq-answer');
+            const itemIcon = item.querySelector('.faq-icon');
+
+            itemAnswer.classList.add('hidden');
+            itemIcon.classList.remove('rotate-180');
+          });
+
+          // Toggle current item state
+          if (!isExpanded) {
+            answer.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
